@@ -2,10 +2,10 @@ import { useState } from "react"
 import { Button, Typography, TextField, Stack } from "@mui/material"
 import DateTimePickerValue from "./DateTimePicker"
 import dayjs, { Dayjs } from "dayjs"
+import { calculateCost } from "../utils/calculateCost"
 //TODO
 // regex check valid input only number, error otherwise
 // Own button component
-// Change inputs to textfields
 //
 interface FormData {
   cartValue: string
@@ -14,11 +14,10 @@ interface FormData {
 }
 
 interface Props {
-  calculateCost: (formData: FormData, orderTime: Dayjs | null) => number
   setDeliveryPrice: React.Dispatch<React.SetStateAction<number | null>>
 }
 
-const Form = ({ calculateCost, setDeliveryPrice }: Props) => {
+const Form = ({ setDeliveryPrice }: Props) => {
   const [formData, setFormData] = useState<FormData>({
     cartValue: "",
     deliveryDistance: "",

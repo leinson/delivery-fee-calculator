@@ -6,6 +6,7 @@ const theme = responsiveFontSizes(
     palette: {
       primary: { main: "#00c2e8", contrastText: "#FFFFFF" },
       secondary: { main: "#00c2e8" },
+      background: { default: "#00c2e8" },
     },
 
     typography: {

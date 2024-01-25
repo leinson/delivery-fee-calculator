@@ -5,11 +5,11 @@ import { AdapterDayjs } from "@mui/x-date-pickers/AdapterDayjs"
 import { DateTimePicker } from "@mui/x-date-pickers/DateTimePicker"
 
 interface Props {
-  orderTime: Dayjs | null;
-  handleChangeDateTime: (newDate: Dayjs | null) => void;
+  orderTime: Dayjs | null
+  handleChangeDateTime: (newDate: Dayjs | null) => void
 }
 
-const DateTimePickerValue = ({orderTime, handleChangeDateTime}: Props) => {
+const DateTimePickerValue = ({ orderTime, handleChangeDateTime }: Props) => {
   return (
     <LocalizationProvider dateAdapter={AdapterDayjs}>
       <DemoContainer components={["DateTimePicker"]}>
