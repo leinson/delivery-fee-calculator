@@ -4,12 +4,11 @@ import DeliveryPrice from "./components/DeliveryPrice"
 import theme from "./theme"
 import { Dayjs } from "dayjs"
 import { ThemeProvider } from "@emotion/react"
-import { Typography, Stack, Container, Card } from "@mui/material"
+import { Typography, Stack, Card, CardContent } from "@mui/material"
 
 //TODO
 //Extract Fri day & rush hour from datetime
 //Do the Cost calculations => Move to DeliveryPrice
-
 
 interface FormData {
   cartValue: string
@@ -34,16 +33,15 @@ const App = () => {
 
   return (
     <ThemeProvider theme={theme}>
-      <Container>
-        <Card>
-          <Stack
-            direction="column"
-            justifyContent="center"
-            alignItems="center"
-            spacing={2}
-            padding={{ xs: 1, md: 4 }}
-          >
-            <Typography variant="h1" align="center" color="primary">
+      <Stack alignItems="center" padding={{ xs: 1, md: 4 }}>
+        <Card elevation={5} sx={{ padding: 3 }}>
+          <CardContent>
+            <Typography
+              variant="h1"
+              align="center"
+              color="primary"
+              sx={{ paddingBottom: 3 }}
+            >
               Delivery Fee Calculator
             </Typography>
             <Form
@@ -53,9 +51,9 @@ const App = () => {
               setDeliveryPrice={setDeliveryPrice}
             />
             <DeliveryPrice deliveryPrice={deliveryPrice} />
-          </Stack>
+          </CardContent>
         </Card>
-      </Container>
+      </Stack>
     </ThemeProvider>
   )
 }

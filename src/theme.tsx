@@ -11,6 +11,7 @@ const theme = responsiveFontSizes(
     typography: {
       h1: {
         fontWeight: "bold",
+        fontSize: "3rem",
       },
       button: {
         fontWeight: 700,

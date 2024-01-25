@@ -1,9 +1,9 @@
 import { useState } from "react"
-import { Button, Typography, TextField } from "@mui/material"
+import { Button, Typography, TextField, Stack } from "@mui/material"
 import DateTimePickerValue from "./DateTimePicker"
 import dayjs, { Dayjs } from "dayjs"
 //TODO
-// regex check valid input only number, error otherwise 
+// regex check valid input only number, error otherwise
 // Own button component
 // Change inputs to textfields
 //
@@ -57,32 +57,25 @@ const Form = ({ calculateCost, setDeliveryPrice }: Props) => {
   return (
     <>
       <form onSubmit={handleSubmit}>
-        <label htmlFor="cartValue">
-          <Typography>Cart Value</Typography>
-          <input
-            type="number"
+        <Stack spacing={1}>
+          <TextField
             id="cartValue"
+            label="Cart value"
+            variant="outlined"
             name="cartValue"
             data-test-id="cartValue"
             value={formData.cartValue}
             onChange={handleChange}
           />
-        </label>
-        <br />
-        <label htmlFor="deliveryDistance">
-          <Typography>Delivery Distance</Typography>
-          <input
-            type="number"
+          <TextField
             id="deliveryDistance"
+            label="Delivery distance"
+            variant="outlined"
             name="deliveryDistance"
             data-test-id="deliveryDistance"
             value={formData.deliveryDistance}
             onChange={handleChange}
           />
-        </label>
-        <br />
-        <label htmlFor="numberOfItems">
-          <Typography>Number of Items</Typography>
           <TextField
             id="numberOfItems"
             label="Number of Items"
@@ -92,19 +85,24 @@ const Form = ({ calculateCost, setDeliveryPrice }: Props) => {
             value={formData.numberOfItems}
             onChange={handleChange}
           />
-        </label>
-        <br />
-        <DateTimePickerValue
-          orderTime={orderTime}
-          handleChangeDateTime={handleChangeDateTime}
-        />
-        <br />
-        <Button variant="contained" color="primary" type="submit">
-          <Typography variant="button">Calculate</Typography>
-        </Button>
-        <Button variant="contained" color="primary" onClick={emptyForm}>
-          <Typography variant="button">Reset</Typography>
-        </Button>
+          <DateTimePickerValue
+            orderTime={orderTime}
+            handleChangeDateTime={handleChangeDateTime}
+          />
+        </Stack>
+        <Stack
+          paddingY={3}
+          direction="row"
+          alignItems="center"
+          justifyContent="space-between"
+        >
+          <Button variant="contained" color="primary" type="submit">
+            <Typography variant="button">Calculate</Typography>
+          </Button>
+          <Button variant="contained" color="primary" onClick={emptyForm}>
+            <Typography variant="button">Reset</Typography>
+          </Button>
+        </Stack>
       </form>
     </>
   )
