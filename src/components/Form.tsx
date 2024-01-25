@@ -68,7 +68,7 @@ const Form = ({ setDeliveryPrice }: Props) => {
           />
           <TextField
             id="deliveryDistance"
-            label="Delivery distance"
+            label="Delivery distance in meters"
             variant="outlined"
             name="deliveryDistance"
             data-test-id="deliveryDistance"
