@@ -1,6 +1,6 @@
 import { useState } from "react"
-import Form from "./components/Form"
-import DeliveryPrice from "./components/DeliveryPrice"
+import { Form } from "./components/Form"
+import { DeliveryPrice } from "./components/DeliveryPrice"
 import theme from "./theme"
 import { ThemeProvider } from "@emotion/react"
 import {
@@ -10,8 +10,10 @@ import {
   CardContent,
   CssBaseline,
 } from "@mui/material"
+//TODO
+//remove node_modules from the version that is send to wolt
 
-const App = () => {
+export const App = () => {
   const [deliveryPrice, setDeliveryPrice] = useState<number | null>(null)
   console.log("delprice", deliveryPrice)
 
@@ -38,4 +40,4 @@ const App = () => {
   )
 }
 
-export default App
+

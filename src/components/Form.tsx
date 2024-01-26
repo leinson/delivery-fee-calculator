@@ -1,10 +1,12 @@
 import { useState } from "react"
 import { Button, Typography, TextField, Stack } from "@mui/material"
-import DateTimePickerValue from "./DateTimePicker"
+import { DateTimePickerValue } from "./DateTimePicker"
 import dayjs, { Dayjs } from "dayjs"
-import { calculateCost } from "../utils/calculateCost"
+import { calculateDeliveryFee } from "../utils/calculateDeliveryFee"
 //TODO
 // regex check valid input only number, error otherwise
+// all fields must be filled check
+// popup when new calculation
 // Own button component
 //
 interface FormData {
@@ -17,7 +19,7 @@ interface Props {
   setDeliveryPrice: React.Dispatch<React.SetStateAction<number | null>>
 }
 
-const Form = ({ setDeliveryPrice }: Props) => {
+export const Form: React.FC<Props> = ({ setDeliveryPrice }) => {
   const [formData, setFormData] = useState<FormData>({
     cartValue: "",
     deliveryDistance: "",
@@ -49,7 +51,7 @@ const Form = ({ setDeliveryPrice }: Props) => {
   }
   const handleSubmit = (event: React.FormEvent<HTMLFormElement>) => {
     event.preventDefault()
-    const calculatedCost = calculateCost(formData, orderTime)
+    const calculatedCost = calculateDeliveryFee(formData, orderTime)
     setDeliveryPrice(calculatedCost)
   }
 
@@ -59,7 +61,7 @@ const Form = ({ setDeliveryPrice }: Props) => {
         <Stack spacing={1}>
           <TextField
             id="cartValue"
-            label="Cart value"
+            label="Cart value in euros"
             variant="outlined"
             name="cartValue"
             data-test-id="cartValue"
@@ -107,4 +109,4 @@ const Form = ({ setDeliveryPrice }: Props) => {
   )
 }
 
-export default Form
+

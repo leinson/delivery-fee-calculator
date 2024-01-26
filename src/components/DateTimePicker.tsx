@@ -9,7 +9,7 @@ interface Props {
   handleChangeDateTime: (newDate: Dayjs | null) => void
 }
 
-const DateTimePickerValue = ({ orderTime, handleChangeDateTime }: Props) => {
+export const DateTimePickerValue: React.FC<Props> = ({ orderTime, handleChangeDateTime }) => {
   return (
     <LocalizationProvider dateAdapter={AdapterDayjs}>
       <DemoContainer components={["DateTimePicker"]}>
@@ -25,4 +25,4 @@ const DateTimePickerValue = ({ orderTime, handleChangeDateTime }: Props) => {
   )
 }
 
-export default DateTimePickerValue
+

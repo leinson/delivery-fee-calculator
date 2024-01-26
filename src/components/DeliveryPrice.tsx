@@ -4,17 +4,15 @@ interface Props {
   deliveryPrice: number | null
 }
 
-const DeliveryPrice = (props: Props) => {
+export const DeliveryPrice: React.FC<Props> = (props) => {
   return (
     <>
       {typeof props.deliveryPrice === "number" &&
         !isNaN(props.deliveryPrice) && (
           <div>
-            <Typography>Delivery price: {props.deliveryPrice}€</Typography>
+            <Typography>Delivery price: {props.deliveryPrice} €</Typography>
           </div>
         )}
     </>
   )
 }
-
-export default DeliveryPrice
