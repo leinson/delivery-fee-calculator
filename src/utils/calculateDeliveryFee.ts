@@ -7,16 +7,16 @@ import { calculateDistance } from "./calculateDistance"
 //If used comma ',' to separate decimal, convert to dot
 //round decimals to 2 decimals
 
-interface FormData {
+interface DeliveryFeeFormDataProps {
   cartValue: string
   deliveryDistance: string
   numberOfItems: string
 }
 
-export const calculateDeliveryFee = (formData: FormData, orderTime: Dayjs | null) => {
-  const cartValue: number = parseFloat(formData.cartValue)
-  const deliveryDistance: number = parseInt(formData.deliveryDistance)
-  const numberOfItems: number = parseInt(formData.numberOfItems)
+export const calculateDeliveryFee = (deliveryFeeFormData: DeliveryFeeFormDataProps, orderTime: Dayjs | null) => {
+  const cartValue: number = parseFloat(deliveryFeeFormData.cartValue)
+  const deliveryDistance: number = parseInt(deliveryFeeFormData.deliveryDistance)
+  const numberOfItems: number = parseInt(deliveryFeeFormData.numberOfItems)
   let deliveryFee = 0
 
 

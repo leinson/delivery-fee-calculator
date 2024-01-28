@@ -1,5 +1,5 @@
 import { useState } from "react"
-import { Form } from "./components/Form"
+import { DeliveryFeeForm } from "./components/DeliveryFeeForm"
 import { DeliveryPrice } from "./components/DeliveryPrice"
 import theme from "./theme"
 import { ThemeProvider } from "@emotion/react"
@@ -31,7 +31,7 @@ export const App = () => {
             >
               Delivery Fee Calculator
             </Typography>
-            <Form setDeliveryPrice={setDeliveryPrice} />
+            <DeliveryFeeForm setDeliveryPrice={setDeliveryPrice} />
             <DeliveryPrice deliveryPrice={deliveryPrice} />
           </CardContent>
         </Card>
