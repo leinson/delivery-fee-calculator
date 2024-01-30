@@ -10,10 +10,12 @@ export const DeliveryPrice: React.FC<Props> = (props) => {
     <>
       {typeof props.deliveryPrice === "number" &&
         !isNaN(props.deliveryPrice) && (
-          <div>
-            <Typography>Delivery price: {props.deliveryPrice} €</Typography>
+          <>
+            <div data-test-id="fee">
+              <Typography>Delivery price: {props.deliveryPrice} €</Typography>
+            </div>
             <SnackbarCalculated />
-          </div>
+          </>
         )}
     </>
   )

@@ -7,15 +7,15 @@ import React from 'react';
 // Snackbar should popup every time when 'Calculate' button is pressed.
 // Now it does it on the first time, and after 'DeliveryPrice'  has been resetted.
 export const SnackbarCalculated = () => {
-  const [open, setOpen] = useState(true);
+  const [open, setOpen] = useState(true)
 
   const handleClose = (event: React.SyntheticEvent | Event, reason?: string) => {
-    
+    event.preventDefault()
     if (reason === 'clickaway') {
       return;
     }
     setOpen(false);
-  };
+  }
 
   const action = (
     <React.Fragment>
@@ -28,7 +28,7 @@ export const SnackbarCalculated = () => {
         <CloseIcon fontSize="small" />
       </IconButton>
     </React.Fragment>
-  );
+  )
 
   return (
     <>

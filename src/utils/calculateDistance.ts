@@ -1,4 +1,4 @@
-export const calculateDistance = (deliveryDistance: number) => {
+export const calculateDistance = (deliveryDistance: number):number => {
     let distanceFee = 2
     let distance = 1000
     while (distance < deliveryDistance) {

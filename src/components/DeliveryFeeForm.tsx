@@ -30,7 +30,7 @@ export const DeliveryFeeForm: React.FC<DeliveryFeeFormProps> = ({
     numberOfItems: "",
   })
   const [orderTime, setOrderTime] = useState<Dayjs | null>(
-    dayjs("2024-01-17T15:30")
+    dayjs()
   )
   const [isValidInput, setIsValidInput] = useState<boolean>(true)
 
@@ -41,7 +41,7 @@ export const DeliveryFeeForm: React.FC<DeliveryFeeFormProps> = ({
       numberOfItems: "",
     })
     setDeliveryPrice(null)
-    setOrderTime(dayjs("2024-01-01T18:00"))
+    setOrderTime(dayjs())
   }
 
   const checkValidInput = () => {
@@ -141,10 +141,10 @@ export const DeliveryFeeForm: React.FC<DeliveryFeeFormProps> = ({
           alignItems="center"
           justifyContent="space-between"
         >
-          <Button variant="contained" color="primary" type="submit">
+          <Button variant="contained" color="secondary" type="submit">
             <Typography variant="button">Calculate</Typography>
           </Button>
-          <Button variant="contained" color="primary" onClick={emptyForm}>
+          <Button variant="contained" color="secondary" onClick={emptyForm}>
             <Typography variant="button">Reset</Typography>
           </Button>
         </Stack>

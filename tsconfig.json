@@ -11,6 +11,7 @@
     "allowImportingTsExtensions": true,
     "resolveJsonModule": true,
     "isolatedModules": true,
+    "esModuleInterop": true,
     "noEmit": true,
     "jsx": "react-jsx",
 
@@ -22,6 +23,6 @@
     "noImplicitAny": true,
     "noImplicitReturns": true
   },
-  "include": ["src"],
+  "include": ["src", "src/__tests__/App.test.tsx", "jest.config.ts"],
   "references": [{ "path": "./tsconfig.node.json" }]
 }
