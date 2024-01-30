@@ -10,7 +10,7 @@ export const SnackbarCalculated = () => {
   const [open, setOpen] = useState(true)
 
   const handleClose = (event: React.SyntheticEvent | Event, reason?: string) => {
-    event.preventDefault()
+    event
     if (reason === 'clickaway') {
       return;
     }

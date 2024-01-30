@@ -24,14 +24,13 @@ interface DeliveryFeeFormProps {
 export const DeliveryFeeForm: React.FC<DeliveryFeeFormProps> = ({
   setDeliveryPrice,
 }) => {
-  const [deliveryFeeFormData, setDeliveryFeeFormData] = useState<DeliveryFeeFormDataProps>({
-    cartValue: "",
-    deliveryDistance: "",
-    numberOfItems: "",
-  })
-  const [orderTime, setOrderTime] = useState<Dayjs | null>(
-    dayjs()
-  )
+  const [deliveryFeeFormData, setDeliveryFeeFormData] =
+    useState<DeliveryFeeFormDataProps>({
+      cartValue: "",
+      deliveryDistance: "",
+      numberOfItems: "",
+    })
+  const [orderTime, setOrderTime] = useState<Dayjs | null>(dayjs())
   const [isValidInput, setIsValidInput] = useState<boolean>(true)
 
   const emptyForm = () => {
@@ -45,7 +44,10 @@ export const DeliveryFeeForm: React.FC<DeliveryFeeFormProps> = ({
   }
 
   const checkValidInput = () => {
-    const cartValueDecimal = deliveryFeeFormData.cartValue.replace(/(\d),(?=\d)/g, "$1.")
+    const cartValueDecimal = deliveryFeeFormData.cartValue.replace(
+      /(\d),(?=\d)/g,
+      "$1."
+    )
     console.log("parsed", cartValueDecimal)
 
     const cartValueFloat = parseFloat(cartValueDecimal)
@@ -92,7 +94,10 @@ export const DeliveryFeeForm: React.FC<DeliveryFeeFormProps> = ({
     event.preventDefault()
     if (checkValidInput()) {
       setIsValidInput(true)
-      const calculatedCost = calculateDeliveryFee(deliveryFeeFormData, orderTime)
+      const calculatedCost = calculateDeliveryFee(
+        deliveryFeeFormData,
+        orderTime
+      )
       setDeliveryPrice(calculatedCost)
     } else {
       setIsValidInput(false)
@@ -130,10 +135,12 @@ export const DeliveryFeeForm: React.FC<DeliveryFeeFormProps> = ({
             value={deliveryFeeFormData.numberOfItems}
             onChange={handleChange}
           />
-          <DateTimePickerValue
-            orderTime={orderTime}
-            handleChangeDateTime={handleChangeDateTime}
-          />
+          <div data-test-id="orderTime">
+            <DateTimePickerValue
+              orderTime={orderTime}
+              handleChangeDateTime={handleChangeDateTime}
+            />
+          </div>
         </Stack>
         <Stack
           paddingY={3}
@@ -141,10 +148,20 @@ export const DeliveryFeeForm: React.FC<DeliveryFeeFormProps> = ({
           alignItems="center"
           justifyContent="space-between"
         >
-          <Button variant="contained" color="secondary" type="submit">
+          <Button
+            data-test-id="calculate"
+            variant="contained"
+            color="secondary"
+            type="submit"
+          >
             <Typography variant="button">Calculate</Typography>
           </Button>
-          <Button variant="contained" color="secondary" onClick={emptyForm}>
+          <Button
+            data-test-id="reset"
+            variant="contained"
+            color="secondary"
+            onClick={emptyForm}
+          >
             <Typography variant="button">Reset</Typography>
           </Button>
         </Stack>

@@ -23,6 +23,6 @@
     "noImplicitAny": true,
     "noImplicitReturns": true
   },
-  "include": ["src", "src/__tests__/App.test.tsx", "jest.config.ts"],
+  "include": ["src", "jest.config.ts"],
   "references": [{ "path": "./tsconfig.node.json" }]
 }
