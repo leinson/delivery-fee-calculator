@@ -10,8 +10,6 @@ import {
   CardContent,
   CssBaseline,
 } from "@mui/material"
-//TODO
-//remove node_modules from the version that is send to wolt
 
 export const App = () => {
   const [deliveryPrice, setDeliveryPrice] = useState<number | null>(null)
@@ -39,5 +37,3 @@ export const App = () => {
     </ThemeProvider>
   )
 }
-
-

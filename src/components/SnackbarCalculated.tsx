@@ -1,20 +1,21 @@
-import Snackbar from '@mui/material/Snackbar';
-import IconButton from '@mui/material/IconButton';
-import CloseIcon from '@mui/icons-material/Close';
-import { useState } from 'react';
-import React from 'react';
-// TODO
-// Snackbar should popup every time when 'Calculate' button is pressed.
-// Now it does it on the first time, and after 'DeliveryPrice'  has been resetted.
+import Snackbar from "@mui/material/Snackbar"
+import IconButton from "@mui/material/IconButton"
+import CloseIcon from "@mui/icons-material/Close"
+import { useState } from "react"
+import React from "react"
+
 export const SnackbarCalculated = () => {
   const [open, setOpen] = useState(true)
 
-  const handleClose = (event: React.SyntheticEvent | Event, reason?: string) => {
+  const handleClose = (
+    event: React.SyntheticEvent | Event,
+    reason?: string
+  ) => {
     event
-    if (reason === 'clickaway') {
-      return;
+    if (reason === "clickaway") {
+      return
     }
-    setOpen(false);
+    setOpen(false)
   }
 
   const action = (
@@ -40,5 +41,5 @@ export const SnackbarCalculated = () => {
         action={action}
       />
     </>
-  );
+  )
 }

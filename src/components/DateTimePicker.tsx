@@ -16,7 +16,6 @@ export const DateTimePickerValue: React.FC<Props> = ({ orderTime, handleChangeDa
         <DateTimePicker
           label="Order time"
           name="orderTime"
-          data-test-id="orderTime"
           value={orderTime}
           onChange={handleChangeDateTime}
         />

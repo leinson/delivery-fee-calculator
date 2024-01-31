@@ -2,20 +2,9 @@ import { useState } from "react"
 import { Button, Typography, TextField, Stack, Alert } from "@mui/material"
 import { DateTimePickerValue } from "./DateTimePicker"
 import dayjs, { Dayjs } from "dayjs"
-import { calculateDeliveryFee } from "../utils/calculateDeliveryFee"
-
-//TODO
-// check valid input only number, error otherwise
-// if other values are entered but a number exists, it calculates by the number
-// would be wise to have a dynamic input check aswell to avoid wrong values.
-// when invalid input is calculated and error pops up, reset delivery price to null
-// clean up of checkValidInput, divide to smaller functions
-
-interface DeliveryFeeFormDataProps {
-  cartValue: string
-  deliveryDistance: string
-  numberOfItems: string
-}
+import { calculateDeliveryFee } from "../utils/calculate/calculateDeliveryFee"
+import { DeliveryFeeFormDataProps } from "../types"
+import { checkDeliveryFeeFormInput } from "../utils/checkDeliveryFeeForm/checkDeliveryFeeFormInput"
 
 interface DeliveryFeeFormProps {
   setDeliveryPrice: React.Dispatch<React.SetStateAction<number | null>>
@@ -43,45 +32,6 @@ export const DeliveryFeeForm: React.FC<DeliveryFeeFormProps> = ({
     setOrderTime(dayjs())
   }
 
-  const checkValidInput = () => {
-    const cartValueDecimal = deliveryFeeFormData.cartValue.replace(
-      /(\d),(?=\d)/g,
-      "$1."
-    )
-    console.log("parsed", cartValueDecimal)
-
-    const cartValueFloat = parseFloat(cartValueDecimal)
-    console.log("float", cartValueFloat)
-    if (
-      deliveryFeeFormData.cartValue === "" ||
-      deliveryFeeFormData.deliveryDistance === "" ||
-      deliveryFeeFormData.numberOfItems === ""
-    ) {
-      console.log("validinput?")
-      return false
-    }
-    if (isNaN(cartValueFloat)) {
-      return false
-    }
-    if (
-      !Number.isInteger(parseInt(deliveryFeeFormData.deliveryDistance)) ||
-      !Number.isInteger(parseInt(deliveryFeeFormData.numberOfItems))
-    ) {
-      console.log(
-        "incorrect number",
-        Number.isInteger(parseInt(deliveryFeeFormData.deliveryDistance))
-      )
-      return false
-    }
-    if (!orderTime?.isValid()) {
-      return false
-    }
-    console.log("correct number", parseInt(deliveryFeeFormData.numberOfItems))
-    return true
-  }
-
-  console.log("formdata", deliveryFeeFormData)
-
   const handleChange = (event: React.ChangeEvent<HTMLInputElement>) => {
     const { id, value } = event.target
     setIsValidInput(true)
@@ -92,7 +42,8 @@ export const DeliveryFeeForm: React.FC<DeliveryFeeFormProps> = ({
   }
   const handleSubmit = (event: React.FormEvent<HTMLFormElement>) => {
     event.preventDefault()
-    if (checkValidInput()) {
+    setDeliveryPrice(null)
+    if (checkDeliveryFeeFormInput(deliveryFeeFormData, orderTime)) {
       setIsValidInput(true)
       const calculatedCost = calculateDeliveryFee(
         deliveryFeeFormData,

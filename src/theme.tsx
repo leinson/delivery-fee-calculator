@@ -1,6 +1,5 @@
 import { createTheme, responsiveFontSizes } from "@mui/material"
 
-// #00c2e8
 const theme = responsiveFontSizes(
   createTheme({
     palette: {
