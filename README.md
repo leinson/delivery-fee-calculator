@@ -1,6 +1,6 @@
 # Wolt delivery fee calculator
 
-This app is a frontend Wolt delivery fee calculator : "This code is needed when a customer is ready with their shopping cart and we’d like to show them how much the delivery will cost. The delivery price depends on the cart value, the number of items in the cart, the time of the order, and the delivery distance."/Wolt, github
+This app is a frontend Wolt delivery fee calculator : "This code is needed when a customer is ready with their shopping cart and we’d like to show them how much the delivery will cost. The delivery price depends on the cart value, the number of items in the cart, the time of the order, and the delivery distance."/Wolt, GitHub
 
 Assignment and more precise specifications: https://github.com/woltapp/engineering-internship-2024
 
@@ -14,10 +14,11 @@ Commands:
 Install dependencies: `npm install`
 
 Run app: `npm run dev`
-Click open the localhost-adress in the terminal.
+Click open the Local adress in the terminal.
 
 Run tests: 
-- Cypress: `npm run cypress:open`
+- E2E with Cypress: `npm run cypress:open` (have the app running in another terminal). Choose E2E Testing and a browser of your choice. Click on the `wolt_app.cy.ts` file to run tests.
+
 - Jest: `npm run test`
 
 If you run into trouble with node:
@@ -28,6 +29,6 @@ If you run into trouble with node:
 Due to time constraints, the app is not yet foolproof. Following areas need to be worked on in the future:
 
 - There should be more precise checks of the form inputs, preferably informing the user in realtime when typing
-- Higher test coverage
+- Higher test coverage and testing more edge cases
 - "Delivery fee calculated successfully" only appears on the first calculation and after a reset. Should appear every time the Calculate button is pressed and the input is correct.
-- Make sure it is up to Typescript good praxis standards, since this is the first project I am using Typescript in.
+- Make sure it is up to Typescript good praxis, since this is the first project I am using Typescript in.
