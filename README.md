@@ -6,6 +6,8 @@ Assignment and more precise specifications: https://github.com/woltapp/engineeri
 
 Created with Vite+React+Typescript, node v20.1.0 & npm v9.6.4. For testing, I have chosen Jest and Cypress. The UI is implemented with the Material UI (MUI) library. Accessibility and good UX has been made sure through manual user testing and Chrome's Lighthouse tool, taking into account e.g. color contrast and proper naming of visual components. 
 
+Pushed to public GitHub after the assignment deadline.
+
 ## Install
 
 Make sure you have Node.js installed on your computer.
